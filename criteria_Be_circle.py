@@ -30,6 +30,9 @@ for file in files:
                     file_out.append(">"+str(line)+"\n")
                     print(file_out)
 
-dat_out.write(file_out)
+
+for res in file_out:
+    dat_out.write(str(res))
+
 dat_out.close()
 dat.close()
