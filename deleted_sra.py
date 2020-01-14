@@ -21,7 +21,7 @@ for file in files:
             print(name)
             for sra in studies:
                 print(sra+" not")
-                if sra!=name:
+                if sra!=name: ###名字不匹配，写入file_out
                     file_out.append(">"+str(dat_lines)+"\n")
 for lh in file_out:
     dat_out.write(str(lh))
