@@ -22,7 +22,7 @@ for file in files:
             for line in dat_lines:
                 name=line.split("|")[0]
                 #print(name)
-                if name==sra:
+                if name in sra:
                     print(sra)
                     file_out.append(">"+str(line)+"\n")
                     
