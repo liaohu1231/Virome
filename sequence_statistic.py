@@ -21,7 +21,7 @@ seq = readfasta('dereplicated_total_human_gut_virome_database.fna')
 # 做成另外一个字典字典，键是带‘>’的那一行，值是序列长度：
 for k,v in seq.items():
     seq_len[k] = len(v)
-seq_len_sort = sorted(seq_len.items(), key=lambda x: x[1])
+seq_len_sort = sorted(seq_len.items(), key=lambda x: x[1]) ###lambda函数，返回列表的第二个元素
 seq_len_sort = dict(seq_len_sort)
 
 location = {}
