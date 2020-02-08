@@ -28,21 +28,24 @@ for lines in f2:
 			f3.write(str(key)+";"+str(order)+";"+str(family)+"(Demovir)"+"\n"+str(v)+"\n")
 			#print(f4)
 
-
 for lines in f2:
 	name = lines.split("\t")[0]
-	for k,v in seq.items():
-		key=k.split(".")[0]
-		keynames=key.split(">")[1]
-		#print(keynames)
-		if keynames != name:
-			unclassified=str(key)+";unclassified contig(Demovir)"+"\n"+str(v)+"\n"
-			#unclassified=str(key)
-			for line in unclassified:
-				if not line in f3:
-					#print(line)
-					f3.write(str(line))
-					#print(f4)
+	if name not in f4:
+		f4.append(str(name))
+
+
+for k,v in seq.items():
+	key=k.split(".")[0]
+	keynames=key.split(">")[1]
+	#print(keynames)
+	if keynames not in f4:
+		unclassified=str(key)+";unclassified contig(Demovir)"+"\n"+str(v)+"\n"
+		#unclassified=str(key)
+		for line in unclassified:
+			if not line in f3:
+				#print(line)
+				f3.write(str(line))
+				#print(f4)
 
 
 
