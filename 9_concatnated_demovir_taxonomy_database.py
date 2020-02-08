@@ -13,12 +13,9 @@ def readfasta(filename):
 
 seq=readfasta("dereplicated_total_human_gut_virome_database.fna")
 f2=open("DemoVir_assignments.txt","r")
-#f3_1=open("rename_HGVD.fasta","w+")
-f3=open("rename_HGVD_unassigned.fasta","w+")
+f3=open("rename_HGVD.fasta","w+")
 
-f4=[]
 
-'''
 for lines in f2:
 	name = lines.split("\t")[0]
 	order=lines.split("\t")[1]
@@ -28,9 +25,9 @@ for lines in f2:
 		keynames=key.split(">")[1]
 		#print(keynames)
 		if name == keynames:
-			f4.append(str(key)+";"+str(order)+";"+str(family)+"(Demovir)"+"\n"+str(v)+"\n")
+			f3.write(str(key)+";"+str(order)+";"+str(family)+"(Demovir)"+"\n"+str(v)+"\n")
 			#print(f4)
-'''
+
 
 for lines in f2:
 	name = lines.split("\t")[0]
@@ -43,15 +40,12 @@ for lines in f2:
 			#unclassified=str(key)
 			for line in unclassified:
 				if not line in f3:
-					print(line)
+					#print(line)
 					f3.write(str(line))
 					#print(f4)
 
-'''
-for line in f4:
-	f3.write(str(line))
-'''
+
+
 
 f2.close()
 f3.close()
-#f3_1.close()
