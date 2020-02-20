@@ -35,4 +35,7 @@ for i in $(ls *.sorted);do if [ ! -f $.cov_result ];then bedtools genomecov -iba
 ###计算depth
 source activate gtdbtk;for i in $(ls *.sorted);do coverm contig -b $i -m trimmed_mean -t 5 --min-covered-fraction 0.7 > $i.depth;done
 
+###将所有结果整合至一个矩阵
+python merge_metaphlan_tables.py
+
 
