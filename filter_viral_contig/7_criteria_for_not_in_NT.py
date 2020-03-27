@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import os
-
+import subprocess
+subprocess.call(['','',])
 f1=open("evalue.txt","r")
 f1=f1.read()
 f1=f1.split("\n")
