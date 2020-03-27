@@ -21,7 +21,7 @@ rm $i
 done
 
 ###使用coverm对bam文件进行过滤，we filted out the read-percent-identity with less than 95%
-for i in $(ls *.bam);do j = $(ls *.bam|sed -n "/$i/p"|cut -d "." -f 1);
+for i in $(ls *.bam);do j=$(ls *.bam|sed -n "/$i/p"|cut -d "." -f 1);
 echo source activate gtdbtk";"coverm filter -b $i -o $j"_filtered.bam" --min-read-percent-identity 0.95 -t 12";"rm $i >> coverm_run.sh;
 done
 bash coverm_run.sh
