@@ -33,8 +33,8 @@ relative_abundance=function(d){
   dta_sum=apply(d,2,function(x){x/sum(x)})
 } #计算相对丰度
 
-data=read.table("E:/博士/2020文章/depth/all_health.depth", sep="\t",header = 1, row.names = 1)
-data2=read.table("E:/博士/2020文章/depth/all.depth", sep="\t",header = 1, row.names = 1)
+data=read.table("/depth/all_health.depth", sep="\t",header = 1, row.names = 1)
+data2=read.table("/depth/all.depth", sep="\t",header = 1, row.names = 1) ### read data
 dtat=data[!rownames(data) %in% c("Contig"),]
 dtat2=data2[!rownames(data2) %in% c("Contig"),]
 
