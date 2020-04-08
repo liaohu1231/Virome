@@ -35,8 +35,8 @@ relative_abundance=function(d){
 
 data=read.table("/depth/all_health.depth", sep="\t",header = 1, row.names = 1)
 data2=read.table("/depth/all.depth", sep="\t",header = 1, row.names = 1) ### read data
-dtat=data[!rownames(data) %in% c("Contig"),]
-dtat2=data2[!rownames(data2) %in% c("Contig"),]
+dta=data[!rownames(data) %in% c("Contig"),]
+dta2=data2[!rownames(data2) %in% c("Contig"),]
 
 dtat=dta2
 head(dtat)
