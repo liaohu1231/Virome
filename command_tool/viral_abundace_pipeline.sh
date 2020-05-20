@@ -22,8 +22,7 @@ echo conda deactivate";"source activate gtdbtk";"coverm filter -b $out/$i.bam -o
 echo samtools sort -@ 12 -o $out/$i.sorted $out/$i"_filtered.bam"";"rm $out/$i"_filtered.bam" >> $sh_file ###对过滤文件进行排序 
 ###计算depth
 echo coverm contig -b $out/$i.sorted -m trimmed_mean -t 5 --min-covered-fraction 0.7 ">" $out/$i.depth >> $sh_file;done
-
-cOMG qsubM -P P18Z10200N0098 -f 10G -p 4 -b 5 -N bowtie2 $sh_file
+nohup $sh_file
 
 ###将所有结果整合至一个矩阵
 python merge_metaphlan_tables.py $out/*.depth > all.depth
