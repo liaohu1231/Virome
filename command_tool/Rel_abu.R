@@ -1,9 +1,9 @@
 library('getopt')
  
 command=matrix(c( 
-  'help', 'h', 0,'loical', '帮助文档',
-  'input', 'i', 1, 'character', '输入文件',
-  'output', 'o', 1, 'character', '输出文件'),byrow=T,ncol=5)
+  'help', 'h', 0,'character',
+  'input', 'i', 1, 'character',
+  'output', 'o', 1, 'character'),byrow=T,ncol=4)
   
 args=getopt(command)
 
