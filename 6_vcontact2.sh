@@ -1,5 +1,5 @@
 less prodigal_dereplicated_total_human_gut_virome_database_10000.faa|sed -n "/>/p"|cut -d " " -f 1 >> name.txt
-less prodigal_dereplicated_total_human_gut_virome_database_10000.faa|sed -n "/>/p"|cut -d "." -f 1 >> name_2.txt
+less $1|sed -n "/>/p"|cut -d ' ' -f 1|while read line;do j=${line%_*};echo $j >> name_2.txt;done
 paste -d , name.txt name_2.txt > g2g_2.txt
 sed -i 's/$/,/g' g2g_2.txt
 sed -i "s/$/not_provided/g" g2g_2.txt
