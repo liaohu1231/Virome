@@ -9,7 +9,7 @@ VIBRANT_run.py -i $i -t 64 -folder vibrant_phage/phage_$j/
 done
 
 2.virome_data_run.py: The script used to remove false positive viral 
-genomes identified from vibrant.
+genomes identified from vibrant. the input file is an output fna file from vibrant.
 
 3.skip.py: The script used to filte viral genomes greater or less the
 setted length threshold.
