@@ -1,10 +1,16 @@
-f1=open("c1.clusters","r")
-f2=open("reference_ICTV.txt","r")
+import argparse
+import re
+
+parser = argparse.ArgumentParser(description='vcontact2_tax: A taxonomy based on c1.cluster file from vcontact2')
+parser.add_argument('-c1',dest="c1",help="input c1.cluster")
+parser.add_argument('-ref_ICTV',dest="ICTV",help="input reference_ICTV",default="E:/博士/dezhou/virome/vcontact/reference_ICTV.txt")
+args = parser.parse_args()
+
+f1=open(args.c1,"r")
+f2=open(args.ICTV,"r")
 f4=open("overview_ref.txt","w+")
 f3=[]
 f6=[]
-
-
 for line in f2:
 	Name,origin,order,family,subfamily,genus=line.split("\t")[:]
 	lh=Name+","+order+","+family+","+subfamily+","+genus
@@ -26,10 +32,13 @@ for i in f1:
 				res=res.rstrip("\n")
 				if res not in f4:
 					f4.write(str(res)+"\n")
+					f4.flush()
 
 f7=[]
 f8=[]
 f9=[]
+
+
 file=open("overview_ref.txt","r")
 file=file.readlines()
 for line in file:
@@ -48,15 +57,39 @@ for line in file:
 	if cluster not in f8:
 		f8.append(str(cluster))
 
+f7=sorted(f7)
+family=[]
+clus=[]
+genus_kong={}
+
+print(f7)
+for hang in f7:
+	#print(hang)
+	cluster,tax=hang.split("\t")[:]
+	tax=tax.strip("\n")
+	fa=tax.split(',')[1]
+	gen=tax.split(',')[2]
+	vc_gen=str(cluster)+'\t'+str(gen)
+	if cluster not in clus:
+		num=0
+		clus.append(cluster)
+	else:
+		num+=1
+		print(num)
+		print(str(vc_gen))
+		classi=str(fa)+','+str(gen)
+		genus_kong[cluster]=classi
+		if num > 1:
+			gen="unclassified"
+			classi=str(fa)+','+str(gen)
+			genus_kong[cluster]=classi
+
 for i in range(0,len(f8)):
 	#print(i)
 	row=f8[i]
 	#print(row)
 	f9.append('\n'+row+"\t")
-	for hang in f7:
-		#print(hang)
-		cluster,tax=hang.split("\t")[:]
-		tax=tax.strip("\n")
+	for cluster,tax in genus_kong.items():
 		#print(tax)
 		if cluster == row:
 			if tax not in f9:
@@ -64,11 +97,13 @@ for i in range(0,len(f8)):
 
 files=open("vcontact2","w+")
 for h in f9:
+	print(h)
 	if ",,;"+"\n" not in h:
 		files.write(str(h))
+		files.flush()
 
-f11=open("vcontact2_tax.txt","w+")
-f1=open("c1.clusters","r")
+f11=open("vcontact2_cluster_member.txt","w+")
+f1=open(args.c1,"r")
 f1=f1.readlines()
 
 for line in f1:
@@ -85,15 +120,16 @@ for line in f1:
 					if "\t"+"\n" not in str(res):
 						f11.write(str(res))
 
-f12=open("vcontact2_tax.txt","r")
-f13=open("vcontact2","r")
-f14=open("vcontact2.tax.txt","w+")
-
+f12=open("vcontact2_cluster_member.txt","r")
+f13=open("vcontact2","r",encoding='UTF-8')
+f14=open("final_vcontact2.tax.txt","w+")
+members=[]
 f12=f12.readlines()
-f13=f13.readlines()
-
+print(f13)
 for row in f13:
-	if row != "\n":
+	row=row.strip()
+	if len(row) > 1:
+		print(row)
 		cluster,member=row.split("\t")[:]
 		member=member.rstrip("\n")
 		for hang in f12:
@@ -103,28 +139,6 @@ for row in f13:
 			if i == cluster:
 				print(i)
 				res=str(hang)+"\t"+str(member)+"\t"+"\n"
-				f14.write(str(res))
-
-f16=open("final.vcantact2.taxa.txt","w+")
-f17=open("vcontact2.tax.txt","r")
-f17=f17.readlines()
-
-
-for line in f17:
-	contig,cluster,taxa=line.split("\t")[:]
-	f16.write("\n"+str(contig)+"\t")
-	f17=[]
-	unit=taxa.split(";")[0:-1]
-	#print(taxa)
-	for i in unit:
-		order=i.split(",")[0]
-		family=i.split(",")[1]
-		genus=i.split(",")[2]
-		res=str(order)+","+str(family)+","+str(genus)+";"
-		print(res) 
-		if f17 == []:
-			f17.append(str(res))
-		if f17 != []:
-			f17.append(str(genus)+";")
-		for final in f17:
-			f16.write(str(final))
+				if res not in members:
+					members.append(str(res))
+					f14.write(str(res))
