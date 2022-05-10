@@ -1,0 +1,55 @@
+land use	zones	treatment	samples	sites
+forest	FO	Non_mitomycin_C	T1	T1
+forest	FO	Non_mitomycin_C	T2	T2
+forest	FO	Non_mitomycin_C	SK1	SK1
+forest	FO	Non_mitomycin_C	SK2	SK2
+forest	FO	Non_mitomycin_C	T5	T5
+treelawn	PT	Non_mitomycin_C	J6	J6
+treelawn	PT	Non_mitomycin_C	J7	J7
+treelawn	PT	Non_mitomycin_C	X8	X8
+treelawn	PT	Non_mitomycin_C	h9	h9
+treelawn	PT	Non_mitomycin_C	h10	h10
+vegetable plot	PV	Non_mitomycin_C	G11	G11
+vegetable plot	PV	Non_mitomycin_C	G12	G12
+vegetable plot	PV	Non_mitomycin_C	G13	G13
+vegetable plot	PV	Non_mitomycin_C	C14	C14
+vegetable plot	PV	Non_mitomycin_C	C15	C15
+park	PT	Non_mitomycin_C	Z16	Z16
+park	PT	Non_mitomycin_C	R17	R17
+park	PT	Non_mitomycin_C	S18	S18
+park	PT	Non_mitomycin_C	B19	B19
+park	PT	Non_mitomycin_C	Z20	Z20
+paddy	PV	Non_mitomycin_C	G21	G21
+paddy	PV	Non_mitomycin_C	G22	G22
+paddy	PV	Non_mitomycin_C	G23	G23
+paddy	PV	Non_mitomycin_C	C24	C24
+paddy	PV	Non_mitomycin_C	C25	C25
+forest	FO	mitomycin_C	CT1	T1
+forest	FO	mitomycin_C	CT2	T2
+forest	FO	mitomycin_C	CSK1	SK1
+forest	FO	mitomycin_C	CSK2	SK2
+forest	FO	mitomycin_C	CT5	T5
+treelawn	PT	mitomycin_C	CJ6	J6
+treelawn	PT	mitomycin_C	CJ7	J7
+treelawn	PT	mitomycin_C	CX8	X8
+treelawn	PT	mitomycin_C	Ch9	h9
+treelawn	PT	mitomycin_C	Ch10	h10
+vegetable plot	PV	mitomycin_C	CG11	G11
+vegetable plot	PV	mitomycin_C	CG12	G12
+vegetable plot	PV	mitomycin_C	CG13	G13
+vegetable plot	PV	mitomycin_C	CC14	C14
+vegetable plot	PV	mitomycin_C	CC15	C15
+park	PT	mitomycin_C	CZ16	Z16
+park	PT	mitomycin_C	CR17	R17
+park	PT	mitomycin_C	CS18	S18
+park	PT	mitomycin_C	CB19	B19
+park	PT	mitomycin_C	CZ20	Z20
+paddy	PV	mitomycin_C	CG21	G21
+paddy	PV	mitomycin_C	CG22	G22
+paddy	PV	mitomycin_C	CG23	G23
+paddy	PV	mitomycin_C	CC24	C24
+paddy	PV	mitomycin_C	CC25	C25
+
+
+
+
