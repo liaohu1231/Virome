@@ -1,0 +1,8 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Liao
+    given-names: Hu
+title: liaohu1231/Virome: Response of soil viral communities to land use changes
+version: Viromes
+date-released: 2022-09-01
